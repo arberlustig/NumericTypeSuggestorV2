@@ -32,10 +32,10 @@
             checkBox2 = new CheckBox();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            minValueInput = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            textBox2 = new TextBox();
+            maxValueInput = new TextBox();
             SuspendLayout();
             // 
             // checkBox1
@@ -78,14 +78,17 @@
             label2.Name = "label2";
             label2.Size = new Size(182, 26);
             label2.TabIndex = 3;
+            label2.Tag = "resultOutput";
             label2.Text = "Not enough Data";
             // 
-            // textBox1
+            // minValueInput
             // 
-            textBox1.Location = new Point(225, 57);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(195, 23);
-            textBox1.TabIndex = 4;
+            minValueInput.Location = new Point(225, 57);
+            minValueInput.Name = "minValueInput";
+            minValueInput.Size = new Size(195, 23);
+            minValueInput.TabIndex = 4;
+            minValueInput.TextChanged += minValueInput_TextChanged;
+            minValueInput.KeyPress += minValueInput_KeyPress;
             // 
             // label3
             // 
@@ -107,22 +110,23 @@
             label4.TabIndex = 6;
             label4.Text = "Min. Value";
             // 
-            // textBox2
+            // maxValueInput
             // 
-            textBox2.Location = new Point(225, 97);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(195, 23);
-            textBox2.TabIndex = 7;
+            maxValueInput.Location = new Point(225, 97);
+            maxValueInput.Name = "maxValueInput";
+            maxValueInput.Size = new Size(195, 23);
+            maxValueInput.TabIndex = 7;
+            maxValueInput.TextChanged += minValueInput_TextChanged;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(502, 450);
-            Controls.Add(textBox2);
+            Controls.Add(maxValueInput);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(minValueInput);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(checkBox2);
@@ -139,9 +143,9 @@
         private CheckBox checkBox2;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox minValueInput;
         private Label label3;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox maxValueInput;
     }
 }
