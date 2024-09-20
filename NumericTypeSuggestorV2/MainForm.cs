@@ -21,9 +21,9 @@ namespace NumericTypeSuggestorV2
                 minValueInput.BackColor = Color.White;
 
                 bool minValueIsExisting = BigInteger.TryParse(minValueInput.Text, out BigInteger minValue);
-                bool maxValueExisting =  BigInteger.TryParse(maxValueInput.Text,out BigInteger maxValue);
+                bool maxValueExisting = BigInteger.TryParse(maxValueInput.Text, out BigInteger maxValue);
 
-                if(minValue > maxValue)
+                if (minValue > maxValue)
                 {
                     maxValueInput.BackColor = Color.Red;
                 }
@@ -31,7 +31,7 @@ namespace NumericTypeSuggestorV2
                 {
                     maxValueInput.BackColor = Color.White;
                 }
-                
+
 
 
             }
@@ -47,7 +47,7 @@ namespace NumericTypeSuggestorV2
         {
 
 
-            return !(char.IsDigit(keyChar)  || char.IsControl(keyChar));
+            return !(char.IsDigit(keyChar) || char.IsControl(keyChar));
         }
 
         private void minValueInput_KeyPress(object sender, KeyPressEventArgs e)
@@ -55,9 +55,11 @@ namespace NumericTypeSuggestorV2
             if (IsNotValid(e.KeyChar))
             {
 
-                e.Handled = true;   
+                e.Handled = true;
             }
 
         }
+
+     
     }
 }
