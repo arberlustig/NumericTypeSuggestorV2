@@ -133,7 +133,7 @@ namespace NumericTypeSuggestorV2
 
 
             //BigInteger 
-            if(minValue < long.MinValue && maxValue > ulong.MaxValue)
+            if(minValue < long.MinValue || maxValue > ulong.MaxValue)
             {
                 resultOutput.Text = "BigInteger";
             }
@@ -142,8 +142,8 @@ namespace NumericTypeSuggestorV2
                 resultOutput.Text = "Not enough Data";
             }
 
-            //shorts
-            if()
+            //short
+            if(minValue >= -30_000 && maxValue < 30_000 && integralOnlyState)
             {
                 resultOutput.Text = "short";
             }
