@@ -118,6 +118,7 @@ namespace NumericTypeSuggestorV2
             {
                 resultOutput.Text = "uint";
             }
+
             else
             {
                 resultOutput.Text = "Not enough Data";
