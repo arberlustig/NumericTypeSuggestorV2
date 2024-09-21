@@ -28,37 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
+            integralCheckBox = new CheckBox();
+            mustBePreciseCheckBox = new CheckBox();
             label1 = new Label();
-            label2 = new Label();
+            resultOutput = new Label();
             minValueInput = new TextBox();
             label3 = new Label();
             label4 = new Label();
             maxValueInput = new TextBox();
             SuspendLayout();
             // 
-            // checkBox1
+            // integralCheckBox
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("MADE TOMMY", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox1.Location = new Point(121, 137);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(133, 24);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "Integral only?";
-            checkBox1.UseVisualStyleBackColor = true;
+            integralCheckBox.AutoSize = true;
+            integralCheckBox.Font = new Font("MADE TOMMY", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            integralCheckBox.Location = new Point(121, 137);
+            integralCheckBox.Name = "integralCheckBox";
+            integralCheckBox.Size = new Size(133, 24);
+            integralCheckBox.TabIndex = 0;
+            integralCheckBox.Text = "Integral only?";
+            integralCheckBox.UseVisualStyleBackColor = true;
+            integralCheckBox.CheckedChanged += integralCheckBox_CheckedChanged;
             // 
-            // checkBox2
+            // mustBePreciseCheckBox
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Font = new Font("MADE TOMMY", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox2.Location = new Point(121, 167);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(161, 24);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "Must be Precise? ";
-            checkBox2.UseVisualStyleBackColor = true;
+            mustBePreciseCheckBox.AutoSize = true;
+            mustBePreciseCheckBox.Font = new Font("MADE TOMMY", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            mustBePreciseCheckBox.Location = new Point(121, 167);
+            mustBePreciseCheckBox.Name = "mustBePreciseCheckBox";
+            mustBePreciseCheckBox.Size = new Size(161, 24);
+            mustBePreciseCheckBox.TabIndex = 1;
+            mustBePreciseCheckBox.Text = "Must be Precise? ";
+            mustBePreciseCheckBox.UseVisualStyleBackColor = true;
+            mustBePreciseCheckBox.CheckedChanged += mustBePreciseCheckBox_CheckedChanged;
             // 
             // label1
             // 
@@ -70,16 +72,16 @@
             label1.TabIndex = 2;
             label1.Text = "Suggested Type:";
             // 
-            // label2
+            // resultOutput
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("MADE TOMMY", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(225, 211);
-            label2.Name = "label2";
-            label2.Size = new Size(182, 26);
-            label2.TabIndex = 3;
-            label2.Tag = "resultOutput";
-            label2.Text = "Not enough Data";
+            resultOutput.AutoSize = true;
+            resultOutput.Font = new Font("MADE TOMMY", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resultOutput.Location = new Point(225, 211);
+            resultOutput.Name = "resultOutput";
+            resultOutput.Size = new Size(182, 26);
+            resultOutput.TabIndex = 3;
+            resultOutput.Tag = "resultOutput";
+            resultOutput.Text = "Not enough Data";
             // 
             // minValueInput
             // 
@@ -116,7 +118,8 @@
             maxValueInput.Name = "maxValueInput";
             maxValueInput.Size = new Size(195, 23);
             maxValueInput.TabIndex = 7;
-            maxValueInput.TextChanged += minValueInput_TextChanged;
+            maxValueInput.TextChanged += maxValueInput_TextChanged;
+            maxValueInput.KeyPress += maxValueInput_KeyPress;
             // 
             // MainForm
             // 
@@ -127,10 +130,10 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(minValueInput);
-            Controls.Add(label2);
+            Controls.Add(resultOutput);
             Controls.Add(label1);
-            Controls.Add(checkBox2);
-            Controls.Add(checkBox1);
+            Controls.Add(mustBePreciseCheckBox);
+            Controls.Add(integralCheckBox);
             Name = "MainForm";
             Text = "Form1";
             ResumeLayout(false);
@@ -139,10 +142,10 @@
 
         #endregion
 
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
+        private CheckBox integralCheckBox;
+        private CheckBox mustBePreciseCheckBox;
         private Label label1;
-        private Label label2;
+        private Label resultOutput;
         private TextBox minValueInput;
         private Label label3;
         private Label label4;
