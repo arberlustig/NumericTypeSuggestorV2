@@ -111,22 +111,29 @@ namespace NumericTypeSuggestorV2
             bool minValueExisting = decimal.TryParse(minValueInput.Text, out decimal minValue);
             bool maxValueExisting = decimal.TryParse(maxValueInput.Text, out decimal maxValue);
 
-
-            if(integralOnlyState == true && 
-                Math.Abs(maxValue + minValue) < 1_000_000 &&
-                minValue >= 0 )
+            //uint 
+            if(minValue >= 0 && maxValue <= 1_000_000 && integralOnlyState)
             {
                 resultOutput.Text = "uint";
             }
-
             else
             {
                 resultOutput.Text = "Not enough Data";
             }
 
-            if(integralOnlyState == true &&
-                Math.Abs(maxValue + minValue) < ulong.MaxValue &&
-                minValue >= 0)
+            //int
+            if(minValue >= -1 && maxValue <= 1_000_000 & integralOnlyState)
+            {
+                resultOutput.Text = "int";
+            }
+            else
+            {
+                resultOutput.Text = "Not enough Data";
+            }
+
+
+            //BigInteger 
+            if(minValue < long.MinValue && maxValue > ulong.MaxValue)
             {
                 resultOutput.Text = "BigInteger";
             }
@@ -135,20 +142,18 @@ namespace NumericTypeSuggestorV2
                 resultOutput.Text = "Not enough Data";
             }
 
-            if (mustBePreciseState == false &&
-                integralOnlyState == false &&
-                 Math.Abs(maxValue + minValue) < 100_000 &&
-                minValue >= 0) 
-                {
-                    resultOutput.Text = "float";
-                }
-            else
-                {
-                    resultOutput.Text = "Not enough Data";
-                }
-
-
-
+            //short
+            if()
+            {
+                resultOutput.Text = "short";
             }
+            else
+            {
+                resultOutput.Text = "Not enough Data";
+            }
+
+
+
+        }
     }
 }
