@@ -142,7 +142,7 @@ namespace NumericTypeSuggestorV2
                 resultOutput.Text = "Not enough Data";
             }
 
-            //short
+            //shorts
             if()
             {
                 resultOutput.Text = "short";
