@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 
 namespace NumericTypeSuggestorV2
@@ -108,36 +109,49 @@ namespace NumericTypeSuggestorV2
         {
             bool integralOnlyState = integralCheckBox.Checked;
             bool mustBePreciseState = mustBePreciseCheckBox.Checked;
-            bool minValueExisting = decimal.TryParse(minValueInput.Text, out decimal minValue);
-            bool maxValueExisting = decimal.TryParse(maxValueInput.Text, out decimal maxValue);
+            bool minValueExisting = double.TryParse(minValueInput.Text, out double minValue);
+            bool maxValueExisting = double.TryParse(maxValueInput.Text, out double maxValue);
 
             //integral numbers
 
-            if ((minValue >= 0 && maxValue <= 100_000))
+
+            if ((minValue >= -1 && maxValue <= 100) && mustBePreciseState)
             {
-                resultOutput.Text = "float";
+                resultOutput.Text = "decimal";
             }
             else if ((minValue < long.MinValue || maxValue > ulong.MaxValue) && integralOnlyState)
             {
                 resultOutput.Text = "BigInteger";
             }
-            else if ((minValue >= -1 && maxValue <= 5) && integralOnlyState)
+            else if ((minValue >= SByte.MinValue && maxValue <= SByte.MaxValue) && integralOnlyState)
             {
                 resultOutput.Text = "sbyte";
             }
-            else if ((minValue >= -30_000 && maxValue <= 30_000) && integralOnlyState)
+            else if ((minValue >= short.MinValue && maxValue <= short.MaxValue) && integralOnlyState)
             {
                 resultOutput.Text = "short";
             }
-            else if ((minValue >= 0 && maxValue <= 1_000_000) && integralOnlyState)
+            else if ((minValue >= uint.MinValue && maxValue <= uint.MaxValue) && integralOnlyState)
             {
                 resultOutput.Text = "uint";
             }
-            else if ((minValue >= -1 && maxValue <= 1_000_000) && integralOnlyState)
+            else if ((minValue >= int.MinValue && maxValue <= int.MaxValue) && integralOnlyState)
             {
                 resultOutput.Text = "int";
             }
-           
+            else if ((minValue >= 0 && maxValue <= 100_000) && integralOnlyState == false && mustBePreciseState == false)
+            {
+                resultOutput.Text = "float";
+            }
+            else if ((minValue < float.MinValue && maxValue <= 0))
+            {
+                resultOutput.Text = "double";
+            }
+            else
+            {
+                resultOutput.Text = "Not enough Data";
+            }
+
 
 
 
