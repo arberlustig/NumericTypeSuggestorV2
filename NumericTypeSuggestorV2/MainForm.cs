@@ -111,46 +111,34 @@ namespace NumericTypeSuggestorV2
             bool minValueExisting = decimal.TryParse(minValueInput.Text, out decimal minValue);
             bool maxValueExisting = decimal.TryParse(maxValueInput.Text, out decimal maxValue);
 
-            //uint 
-            if(minValue >= 0 && maxValue <= 1_000_000 && integralOnlyState)
-            {
-                resultOutput.Text = "uint";
-            }
-            else
-            {
-                resultOutput.Text = "Not enough Data";
-            }
+            //integral numbers
 
-            //int
-            if(minValue >= -1 && maxValue <= 1_000_000 & integralOnlyState)
+            if ((minValue >= 0 && maxValue <= 100_000))
             {
-                resultOutput.Text = "int";
+                resultOutput.Text = "float";
             }
-            else
-            {
-                resultOutput.Text = "Not enough Data";
-            }
-
-
-            //BigInteger 
-            if(minValue < long.MinValue || maxValue > ulong.MaxValue)
+            else if ((minValue < long.MinValue || maxValue > ulong.MaxValue) && integralOnlyState)
             {
                 resultOutput.Text = "BigInteger";
             }
-            else
+            else if ((minValue >= -1 && maxValue <= 5) && integralOnlyState)
             {
-                resultOutput.Text = "Not enough Data";
+                resultOutput.Text = "sbyte";
             }
-
-            //short
-            if(minValue >= -30_000 && maxValue < 30_000 && integralOnlyState)
+            else if ((minValue >= -30_000 && maxValue <= 30_000) && integralOnlyState)
             {
                 resultOutput.Text = "short";
             }
-            else
+            else if ((minValue >= 0 && maxValue <= 1_000_000) && integralOnlyState)
             {
-                resultOutput.Text = "Not enough Data";
+                resultOutput.Text = "uint";
             }
+            else if ((minValue >= -1 && maxValue <= 1_000_000) && integralOnlyState)
+            {
+                resultOutput.Text = "int";
+            }
+           
+
 
 
 
