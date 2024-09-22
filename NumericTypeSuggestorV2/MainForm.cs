@@ -115,17 +115,19 @@ namespace NumericTypeSuggestorV2
             //integral numbers
 
 
-            if ((minValue >= -1 && maxValue <= 100) && mustBePreciseState)
+
+
+            if ((minValue >= Byte.MinValue && maxValue <= Byte.MaxValue) && integralOnlyState)
             {
-                resultOutput.Text = "decimal";
-            }
-            else if ((minValue < long.MinValue || maxValue > ulong.MaxValue) && integralOnlyState)
-            {
-                resultOutput.Text = "BigInteger";
+                resultOutput.Text = "byte";
             }
             else if ((minValue >= SByte.MinValue && maxValue <= SByte.MaxValue) && integralOnlyState)
             {
                 resultOutput.Text = "sbyte";
+            }
+            else if ((minValue >= ushort.MinValue && maxValue <= ushort.MaxValue) && integralOnlyState)
+            {
+                resultOutput.Text = "short";
             }
             else if ((minValue >= short.MinValue && maxValue <= short.MaxValue) && integralOnlyState)
             {
@@ -139,6 +141,18 @@ namespace NumericTypeSuggestorV2
             {
                 resultOutput.Text = "int";
             }
+            else if ((minValue >= long.MinValue && maxValue <= ulong.MaxValue) && integralOnlyState)
+            {
+                resultOutput.Text = "ulong";
+            }
+            else if ((minValue >= long.MinValue && maxValue <= long.MaxValue) && integralOnlyState)
+            {
+                resultOutput.Text = "long";
+            }
+            else if ((minValue < long.MinValue || maxValue > ulong.MaxValue) && integralOnlyState)
+            {
+                resultOutput.Text = "BigInteger";
+            }
             else if ((minValue >= 0 && maxValue <= 100_000) && integralOnlyState == false && mustBePreciseState == false)
             {
                 resultOutput.Text = "float";
@@ -146,6 +160,10 @@ namespace NumericTypeSuggestorV2
             else if ((minValue < float.MinValue && maxValue <= 0))
             {
                 resultOutput.Text = "double";
+            }
+            else if ((minValue >= -1 && maxValue <= 100) && mustBePreciseState)
+            {
+                resultOutput.Text = "decimal";
             }
             else
             {

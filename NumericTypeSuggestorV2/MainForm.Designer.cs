@@ -42,7 +42,7 @@
             // 
             integralCheckBox.AutoSize = true;
             integralCheckBox.Font = new Font("MADE TOMMY", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            integralCheckBox.Location = new Point(121, 137);
+            integralCheckBox.Location = new Point(79, 120);
             integralCheckBox.Name = "integralCheckBox";
             integralCheckBox.Size = new Size(133, 24);
             integralCheckBox.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             mustBePreciseCheckBox.AutoSize = true;
             mustBePreciseCheckBox.Font = new Font("MADE TOMMY", 11.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            mustBePreciseCheckBox.Location = new Point(121, 167);
+            mustBePreciseCheckBox.Location = new Point(79, 150);
             mustBePreciseCheckBox.Name = "mustBePreciseCheckBox";
             mustBePreciseCheckBox.Size = new Size(161, 24);
             mustBePreciseCheckBox.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(47, 209);
+            label1.Location = new Point(5, 192);
             label1.Name = "label1";
             label1.Size = new Size(155, 28);
             label1.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             resultOutput.AutoSize = true;
             resultOutput.Font = new Font("MADE TOMMY", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            resultOutput.Location = new Point(225, 211);
+            resultOutput.Location = new Point(183, 194);
             resultOutput.Name = "resultOutput";
             resultOutput.Size = new Size(182, 26);
             resultOutput.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             // minValueInput
             // 
-            minValueInput.Location = new Point(225, 57);
+            minValueInput.Location = new Point(183, 40);
             minValueInput.Name = "minValueInput";
             minValueInput.Size = new Size(195, 23);
             minValueInput.TabIndex = 4;
@@ -96,7 +96,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("MADE TOMMY", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(99, 56);
+            label3.Location = new Point(57, 39);
             label3.Name = "label3";
             label3.Size = new Size(118, 26);
             label3.TabIndex = 5;
@@ -106,7 +106,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("MADE TOMMY", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(99, 94);
+            label4.Location = new Point(57, 77);
             label4.Name = "label4";
             label4.Size = new Size(118, 26);
             label4.TabIndex = 6;
@@ -114,7 +114,7 @@
             // 
             // maxValueInput
             // 
-            maxValueInput.Location = new Point(225, 97);
+            maxValueInput.Location = new Point(183, 80);
             maxValueInput.Name = "maxValueInput";
             maxValueInput.Size = new Size(195, 23);
             maxValueInput.TabIndex = 7;
@@ -126,7 +126,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(502, 292);
+            ClientSize = new Size(393, 236);
             Controls.Add(maxValueInput);
             Controls.Add(label4);
             Controls.Add(label3);
