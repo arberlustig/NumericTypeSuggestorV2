@@ -115,11 +115,30 @@ namespace NumericTypeSuggestorV2
             bool minValueIsDecimal = decimal.TryParse(minValueInput.Text, out decimal minValueDecimal);
             bool maxValueIsDecimal = decimal.TryParse(maxValueInput.Text, out decimal maxValueDecimal);
 
-            //integral numbers
+            Fallunterscheidung(
+                integralOnlyState, 
+                mustBePreciseState, 
+                minValueExisting, 
+                maxValueExisting, 
+                minValueIsDecimal, 
+                maxValueIsDecimal, 
+                minValue,
+                maxValue);
 
+            
 
+        }
 
-
+        private void Fallunterscheidung(
+            bool integralOnlyState,
+            bool mustBePreciseState,
+            bool minValueExisting, 
+            bool maxValueExisting, 
+            bool minValueIsDecimal, 
+            bool maxValueIsDecimal,
+            double minValue,
+            double maxValue)
+        {
             if ((minValue >= Byte.MinValue && maxValue <= Byte.MaxValue) && integralOnlyState)
             {
                 resultOutput.Text = "byte";
@@ -186,11 +205,7 @@ namespace NumericTypeSuggestorV2
                 resultOutput.Text = "Not enough Data";
             }
 
-
-
-
-            
-
         }
+
     }
 }
