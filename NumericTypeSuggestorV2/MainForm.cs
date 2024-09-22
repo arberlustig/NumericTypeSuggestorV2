@@ -112,6 +112,9 @@ namespace NumericTypeSuggestorV2
             bool minValueExisting = double.TryParse(minValueInput.Text, out double minValue);
             bool maxValueExisting = double.TryParse(maxValueInput.Text, out double maxValue);
 
+            bool minValueIsDecimal = decimal.TryParse(minValueInput.Text, out decimal minValueDecimal);
+            bool maxValueIsDecimal = decimal.TryParse(maxValueInput.Text, out decimal maxValueDecimal);
+
             //integral numbers
 
 
@@ -153,17 +156,30 @@ namespace NumericTypeSuggestorV2
             {
                 resultOutput.Text = "BigInteger";
             }
-            else if ((minValue >= 0 && maxValue <= 100_000) && integralOnlyState == false && mustBePreciseState == false)
+            else if ((minValue >= 0 && maxValue <= 100_000) &&
+                (integralOnlyState == false && mustBePreciseState == false))
             {
                 resultOutput.Text = "float";
             }
-            else if ((minValue < float.MinValue && maxValue <= 0))
+            else if ((minValue >= double.MinValue && maxValue <= double.MaxValue) &&
+                (integralOnlyState == false && mustBePreciseState == false))
             {
                 resultOutput.Text = "double";
             }
-            else if ((minValue >= -1 && maxValue <= 100) && mustBePreciseState)
+            else if (new BigInteger(minValue) >= new BigInteger(decimal.MinValue) &&
+                new BigInteger(maxValue) <= new BigInteger(decimal.MaxValue) &&
+                mustBePreciseState)
             {
                 resultOutput.Text = "decimal";
+            }
+            else if (new BigInteger(minValue) >= new BigInteger(decimal.MinValue) && new BigInteger(maxValue) > new BigInteger(decimal.MaxValue) &&
+               mustBePreciseState)
+            {
+                resultOutput.Text = "Impossible representation";
+            }
+            else if (minValue < double.MinValue && (!integralOnlyState && !mustBePreciseState))
+            {
+                resultOutput.Text = "Impossible representation";
             }
             else
             {
@@ -173,7 +189,7 @@ namespace NumericTypeSuggestorV2
 
 
 
-
+            
 
         }
     }
